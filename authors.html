@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WellRead for Authors - Reach engaged readers and grow your book community">
+  <meta property="og:title" content="WellRead for Authors">
+  <meta property="og:description" content="Connect with readers who discover books through social, gamified experiences. Grow your audience and get authentic feedback.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wellread.app/authors.html">
+  <meta name="theme-color" content="#0d1623">
+  <title>For Authors - WellRead</title>
+  <style>
+    :root {
+      --navy: #0d1623;
+      --gold: #c49a2e;
+      --cream: #f5f0e8;
+      --dark-navy: #050c14;
+      --light-navy: #1a2a3d;
+      --sage: #6b9e7a;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: linear-gradient(135deg, var(--dark-navy) 0%, var(--navy) 50%, var(--light-navy) 100%);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      background: rgba(5, 12, 20, 0.5);
+      border-bottom: 1px solid rgba(196, 154, 46, 0.1);
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(5, 12, 20, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(196, 154, 46, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(196, 154, 46, 0.1);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        padding: 0 1.5rem;
+      }
+    }
+
+    /* Main content */
+    main {
+      margin-top: 70px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 6rem 2rem;
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: var(--cream);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+    }
+
+    /* Features Grid */
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--gold);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .feature-card {
+      backdrop-filter: blur(20px);
+      background: rgba(26, 42, 61, 0.3);
+      border: 1px solid rgba(196, 154, 46, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: var(--transition);
+      animation: slideUp 0.6s ease-out backwards;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+
+    .feature-card:hover {
+      background: rgba(26, 42, 61, 0.5);
+      border-color: rgba(196, 154, 46, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--gold);
+    }
+
+    .feature-card p {
+      color: var(--cream);
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    /* How It Works Section */
+    .process {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .process-step:nth-child(1) { animation-delay: 0.1s; }
+    .process-step:nth-child(2) { animation-delay: 0.2s; }
+    .process-step:nth-child(3) { animation-delay: 0.3s; }
+    .process-step:nth-child(4) { animation-delay: 0.4s; }
+
+    .step-number {
+      min-width: 60px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--gold), #d4b240);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .step-content p {
+      color: var(--cream);
+      opacity: 0.85;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .process-step {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(196, 154, 46, 0.1), rgba(107, 158, 122, 0.05));
+      border: 1px solid rgba(196, 154, 46, 0.2);
+      border-radius: 16px;
+      padding: 4rem 2rem;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #d4b240);
+      color: var(--navy);
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(196, 154, 46, 0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(196, 154, 46, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(5, 12, 20, 0.8);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(196, 154, 46, 0.1);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-section a:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(196, 154, 46, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--cream);
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    /* Scroll animations */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .section {
+        padding: 3rem 1.5rem;
+      }
+
+      .features-grid {
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        padding: 1.5rem;
+      }
+
+      .cta-section {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      nav, footer {
+        display: none;
+      }
+
+      .cta-button {
+        border: 2px solid var(--gold);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-logo">WellRead</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="authors.html" class="active">For Authors</a></li>
+      <li><a href="investors.html">Investors</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Reach Readers Who Care</h1>
+      <p class="subtitle">
+        WellRead connects authors with engaged readers who discover books through a social,
+        gamified experience. Find your audience and build a community around your work.
+      </p>
+    </section>
+
+    <!-- Why WellRead Section -->
+    <section class="section">
+      <h2 class="section-title">Why WellRead for Authors?</h2>
+
+      <div class="features-grid">
+        <div class="feature-card scroll-animate">
+          <div class="feature-icon">📚</div>
+          <h3>Discovery Feed</h3>
+          <p>Your books appear in our swipe-based discovery interface, reaching readers actively looking for their next great read.</p>
+        </div>
+
+        <div class="feature-card scroll-animate">
+          <div class="feature-icon">👥</div>
+          <h3>Engaged Community</h3>
+          <p>Connect with book clubs and join AI-powered discussions about your work. Build meaningful relationships with readers.</p>
+        </div>
+
+        <div class="feature-card scroll-animate">
+          <div class="feature-icon">⭐</div>
+          <h3>Built-in Reviews</h3>
+          <p>Receive authentic reader reviews from verified readers. Gain honest feedback and social proof to help attract new readers.</p>
+        </div>
+
+        <div class="feature-card scroll-animate">
+          <div class="feature-icon">📊</div>
+          <h3>Analytics Dashboard</h3>
+          <p><em>Coming soon</em> — Track how readers discover and engage with your work, with detailed insights and metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section">
+      <h2 class="section-title">How It Works</h2>
+
+      <div class="process">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Submit Your Book</h3>
+            <p>Fill out our simple submission form with your book details, description, and cover image.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Our Team Reviews</h3>
+            <p>Our curation team reviews your submission to ensure quality and fit with the WellRead community.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Enter the Discovery Feed</h3>
+            <p>Your book goes live and appears in readers' discovery feeds, reaching people who are actively searching for new books.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Readers Find & Engage</h3>
+            <p>Readers discover your work, save it, write reviews, and share it with their communities. You build a fanbase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2>Ready to Reach Your Readers?</h2>
+      <p>Get started today and connect with the engaged WellRead community.</p>
+      <a href="mailto:authors@likoudislegacy.com" class="cta-button">Get Started</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>WellRead</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="authors.html">For Authors</a></li>
+          <li><a href="investors.html">For Investors</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="mailto:authors@likoudislegacy.com">Contact Authors Team</a></li>
+          <li><a href="mailto:investors@likoudislegacy.com">Contact Investors</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Book Clubs</a></li>
+          <li><a href="#">Discussions</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 WellRead. All rights reserved. Connecting readers and authors through social discovery.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when link is clicked
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-animate').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Set active nav link based on current page
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname.split('/').pop() ||
+          (window.location.pathname.includes('authors.html') && link.getAttribute('href') === 'authors.html')) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
