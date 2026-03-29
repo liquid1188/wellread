@@ -242,306 +242,18 @@
             }
         }
 
-        /* Phone Mockup */
-        .phone-mockup {
-            position: relative;
+        /* Hero Phone */
+        .hero-phone {
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-phone-img {
             width: 280px;
-            height: 580px;
-            background: var(--light-navy);
-            border-radius: 50px;
-            padding: 12px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 8px solid #1a1a1a;
-        }
-
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 25px;
-            background: #000;
-            border-radius: 0 0 20px 20px;
-            z-index: 10;
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: var(--navy);
-            border-radius: 45px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .phone-content {
-            flex: 1;
-            overflow: hidden;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .phone-status-bar {
-            height: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            padding: 0 0.5rem;
-            color: var(--cream);
-            border-bottom: 1px solid rgba(196, 154, 46, 0.1);
-            margin-bottom: 0.5rem;
-        }
-
-        .status-left, .status-right {
-            display: flex;
-            gap: 3px;
-        }
-
-        .phone-tabbar {
-            height: 60px;
-            background: rgba(26, 42, 61, 0.8);
-            border-top: 1px solid rgba(196, 154, 46, 0.1);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .tab-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-            color: rgba(245, 240, 232, 0.6);
-            font-size: 0.65rem;
-        }
-
-        .tab-item.active {
-            color: var(--gold);
-        }
-
-        .tab-icon {
-            font-size: 1.3rem;
-        }
-
-        /* Discover Screen */
-        .discover-card {
-            background: linear-gradient(135deg, #2a4a6a 0%, #1a3a5a 100%);
-            border-radius: 16px;
-            padding: 0.8rem;
-            margin-bottom: 0.5rem;
-            border: 1px solid rgba(196, 154, 46, 0.2);
-        }
-
-        .card-cover {
-            width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #d4a84f 0%, #a87a2a 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.3);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .card-title {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--cream);
-            margin-bottom: 0.2rem;
-        }
-
-        .card-author {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.3rem;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 0.4rem;
-            font-size: 0.6rem;
-            color: var(--sage-light);
-        }
-
-        .swipe-hint {
-            text-align: center;
-            font-size: 0.65rem;
-            color: var(--gold);
-            margin-top: 0.5rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        /* Dashboard Screen */
-        .dashboard-section {
-            margin-bottom: 0.8rem;
-        }
-
-        .streak-badge {
-            background: linear-gradient(135deg, #6b9e7a 0%, #5a8a6a 100%);
-            border-radius: 12px;
-            padding: 0.6rem;
-            text-align: center;
-            border: 1px solid rgba(168, 213, 186, 0.3);
-        }
-
-        .streak-number {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--sage-light);
-        }
-
-        .streak-label {
-            font-size: 0.6rem;
-            color: rgba(245, 240, 232, 0.8);
-        }
-
-        .xp-bar {
-            background: rgba(26, 42, 61, 0.5);
-            height: 6px;
-            border-radius: 3px;
-            margin-top: 0.3rem;
-            overflow: hidden;
-        }
-
-        .xp-fill {
-            height: 100%;
-            width: 65%;
-            background: linear-gradient(90deg, var(--gold) 0%, #d4a84f 100%);
-            border-radius: 3px;
-        }
-
-        .xp-text {
-            font-size: 0.65rem;
-            color: var(--text-secondary);
-            margin-top: 0.2rem;
-        }
-
-        .progress-item {
-            background: rgba(26, 42, 61, 0.5);
-            padding: 0.5rem;
-            border-radius: 8px;
-            margin-bottom: 0.4rem;
-            border-left: 3px solid var(--gold);
-        }
-
-        .progress-title {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--cream);
-        }
-
-        .progress-pages {
-            font-size: 0.6rem;
-            color: var(--text-secondary);
-            margin-top: 0.1rem;
-        }
-
-        /* Quiz Screen */
-        .quiz-header {
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            padding: 0.8rem;
-            border-radius: 12px;
-            margin-bottom: 0.8rem;
-            text-align: center;
-        }
-
-        .quiz-progress {
-            font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .quiz-question {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--cream);
-            margin-bottom: 0.5rem;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .quiz-option {
-            background: rgba(26, 42, 61, 0.5);
-            border: 1px solid rgba(196, 154, 46, 0.2);
-            border-radius: 8px;
-            padding: 0.5rem;
-            font-size: 0.7rem;
-            color: var(--cream);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .quiz-option:hover {
-            border-color: var(--gold);
-            background: rgba(196, 154, 46, 0.05);
-        }
-
-        /* Book Detail Screen */
-        .book-detail-cover {
-            width: 100%;
-            height: 120px;
-            background: linear-gradient(135deg, #d4a84f 0%, #a87a2a 100%);
-            border-radius: 12px;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: rgba(0, 0, 0, 0.3);
-        }
-
-        .book-rating {
-            display: flex;
-            gap: 2px;
-            margin-bottom: 0.6rem;
-        }
-
-        .star {
-            font-size: 0.8rem;
-            color: var(--gold);
-        }
-
-        .book-info-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.65rem;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(196, 154, 46, 0.1);
-            color: var(--text-secondary);
-        }
-
-        .book-info-label {
-            font-weight: 600;
-        }
-
-        .book-button {
-            width: 100%;
-            background: linear-gradient(135deg, var(--sage) 0%, #5a8a6a 100%);
-            color: var(--cream);
-            border: none;
-            border-radius: 8px;
-            padding: 0.5rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: 0.6rem;
-            cursor: pointer;
+            height: auto;
+            border-radius: 36px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 8px #1a1a1a, 0 0 60px rgba(196, 154, 46, 0.1);
         }
 
         /* Stats Row */
@@ -646,62 +358,75 @@
             line-height: 1.6;
         }
 
-        /* Screenshots Section */
+        /* Screenshots Showcase Section */
         .screenshots {
-            max-width: 1400px;
+            max-width: 1100px;
             margin: 6rem auto;
             padding: 2rem;
         }
 
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            justify-items: center;
-        }
-
-        .screenshot-container {
+        .showcase-featured {
             display: flex;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            flex-direction: column;
+            gap: 5rem;
+            margin-top: 3rem;
         }
 
-        .screenshot-container:nth-child(1) { animation-delay: 0s; }
-        .screenshot-container:nth-child(2) { animation-delay: 0.1s; }
-        .screenshot-container:nth-child(3) { animation-delay: 0.2s; }
-        .screenshot-container:nth-child(4) { animation-delay: 0.3s; }
-
-        .screenshot-label {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--cream);
+        .showcase-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .screenshot-description {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        .screenshot-img {
+        .showcase-phone img {
             width: 260px;
             height: auto;
             border-radius: 32px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 6px #1a1a1a;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 6px #1a1a1a;
+            transition: transform 0.4s ease;
         }
 
-        .screenshot-img:hover {
+        .showcase-phone img:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 6px #1a1a1a, 0 0 30px rgba(196, 154, 46, 0.15);
         }
 
-        .screenshot-container:nth-child(5) { animation-delay: 0.4s; }
+        .showcase-phone {
+            display: flex;
+            justify-content: center;
+        }
+
+        .showcase-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .showcase-tag {
+            display: inline-block;
+            background: rgba(196, 154, 46, 0.12);
+            color: var(--gold);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .showcase-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.3;
+        }
+
+        .showcase-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
 
         /* How It Works */
         .how-it-works {
@@ -868,8 +593,14 @@
         }
 
         @media (max-width: 1100px) {
-            .screenshots-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .showcase-item {
+                gap: 2rem;
+            }
+            .showcase-phone img {
+                width: 220px;
+            }
+            .showcase-text h3 {
+                font-size: 1.5rem;
             }
         }
 
@@ -899,9 +630,30 @@
                 padding: 8rem 1.5rem 2rem;
             }
 
-            .phone-mockup {
-                width: 240px;
-                height: 490px;
+            .hero-phone-img {
+                width: 220px;
+            }
+
+            .showcase-item {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .showcase-item-right {
+                direction: ltr;
+            }
+
+            .showcase-tag {
+                margin: 0 auto;
+            }
+
+            .showcase-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .showcase-phone img {
+                width: 200px;
             }
 
             .stats-row {
@@ -911,15 +663,6 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .screenshots-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
-            .screenshot-img {
-                width: 200px;
             }
 
             .nav-links {
@@ -969,66 +712,11 @@
                 <p>61,000+ free books. Swipe to discover. AI to discuss. Gamification to motivate. Reading that matters.</p>
                 <div class="hero-cta-group">
                     <button class="btn-primary" onclick="scrollToSection('cta')">Get Early Access</button>
-                    <button class="btn-secondary" onclick="document.getElementById('video').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                    <button class="btn-secondary" onclick="document.getElementById('screenshots').scrollIntoView({behavior: 'smooth'})">See the App</button>
                 </div>
             </div>
-            <div>
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-status-bar">
-                            <div class="status-left">
-                                <span>9:41</span>
-                            </div>
-                            <div class="status-right">
-                                <span>📶</span>
-                                <span>🔋</span>
-                            </div>
-                        </div>
-                        <div class="phone-content">
-                            <div class="discover-card">
-                                <div class="card-cover">Cover Art</div>
-                                <div class="card-title">The Great Gatsby</div>
-                                <div class="card-author">F. Scott Fitzgerald</div>
-                                <div class="card-meta">
-                                    <span>⭐ 4.8</span>
-                                    <span>• 180 pages</span>
-                                </div>
-                            </div>
-                            <div class="discover-card">
-                                <div class="card-cover">Cover Art</div>
-                                <div class="card-title">Pride and Prejudice</div>
-                                <div class="card-author">Jane Austen</div>
-                                <div class="card-meta">
-                                    <span>⭐ 4.7</span>
-                                    <span>• 432 pages</span>
-                                </div>
-                            </div>
-                            <div class="swipe-hint">← Swipe to discover →</div>
-                        </div>
-                        <div class="phone-tabbar">
-                            <div class="tab-item">
-                                <div class="tab-icon">🏠</div>
-                                <div>Home</div>
-                            </div>
-                            <div class="tab-item">
-                                <div class="tab-icon">🔍</div>
-                                <div>Search</div>
-                            </div>
-                            <div class="tab-item active">
-                                <div class="tab-icon">✨</div>
-                                <div>Discover</div>
-                            </div>
-                            <div class="tab-item">
-                                <div class="tab-icon">👥</div>
-                                <div>Clubs</div>
-                            </div>
-                            <div class="tab-item">
-                                <div class="tab-icon">⚡</div>
-                                <div>Progress</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="hero-phone">
+                <img src="screenshots/home.png" alt="WellRead Home Screen" class="hero-phone-img">
             </div>
         </div>
         <div class="scroll-indicator">↓</div>
@@ -1114,44 +802,49 @@
         <h2 class="section-title">See WellRead in action</h2>
         <p class="section-subtitle">Real screenshots from the app</p>
 
-        <div class="screenshots-grid">
-            <div class="screenshot-container">
-                <div>
-                    <img src="screenshots/home.png" alt="WellRead Home Screen" class="screenshot-img" loading="lazy">
-                    <div class="screenshot-label">Home</div>
-                    <div class="screenshot-description">Your reading dashboard with streaks, XP, and daily check-ins</div>
+        <!-- Featured: two screens side by side with descriptions -->
+        <div class="showcase-featured">
+            <div class="showcase-item showcase-item-left scroll-fade">
+                <div class="showcase-text">
+                    <div class="showcase-tag">Discover</div>
+                    <h3>Find your next favorite book</h3>
+                    <p>Swipe through 61,000+ free books with our Tinder-style discovery feed. Classic literature, modern fiction, and hidden gems — all at your fingertips.</p>
+                </div>
+                <div class="showcase-phone">
+                    <img src="screenshots/discover.png" alt="WellRead Discover Screen" loading="lazy">
                 </div>
             </div>
 
-            <div class="screenshot-container">
-                <div>
-                    <img src="screenshots/discover.png" alt="WellRead Discover Screen" class="screenshot-img" loading="lazy">
-                    <div class="screenshot-label">Discover</div>
-                    <div class="screenshot-description">Swipe through 61k+ books with our Tinder-style feed</div>
+            <div class="showcase-item showcase-item-right scroll-fade">
+                <div class="showcase-phone">
+                    <img src="screenshots/search.png" alt="WellRead Search Screen" loading="lazy">
+                </div>
+                <div class="showcase-text">
+                    <div class="showcase-tag">Search</div>
+                    <h3>Find any book instantly</h3>
+                    <p>Search by title, author, or genre. Browse curated collections or explore trending reads. Your entire library, one tap away.</p>
                 </div>
             </div>
 
-            <div class="screenshot-container">
-                <div>
-                    <img src="screenshots/search.png" alt="WellRead Search Screen" class="screenshot-img" loading="lazy">
-                    <div class="screenshot-label">Search</div>
-                    <div class="screenshot-description">Find any book by title, author, or genre</div>
+            <div class="showcase-item showcase-item-left scroll-fade">
+                <div class="showcase-text">
+                    <div class="showcase-tag">Book Clubs</div>
+                    <h3>Read together</h3>
+                    <p>Join book clubs, spark discussions, and write reviews. Reading is better when it's social — connect with readers who share your taste.</p>
+                </div>
+                <div class="showcase-phone">
+                    <img src="screenshots/club.png" alt="WellRead Book Clubs" loading="lazy">
                 </div>
             </div>
 
-            <div class="screenshot-container">
-                <div>
-                    <img src="screenshots/club.png" alt="WellRead Book Clubs" class="screenshot-img" loading="lazy">
-                    <div class="screenshot-label">Book Clubs</div>
-                    <div class="screenshot-description">Join clubs, discuss books, and connect with other readers</div>
+            <div class="showcase-item showcase-item-right scroll-fade">
+                <div class="showcase-phone">
+                    <img src="screenshots/progress.png" alt="WellRead Reading Progress" loading="lazy">
                 </div>
-            </div>
-
-            <div class="screenshot-container">
-                <div>
-                    <img src="screenshots/progress.png" alt="WellRead Reading Progress" class="screenshot-img" loading="lazy">
-                    <div class="screenshot-label">Progress</div>
-                    <div class="screenshot-description">Track reading goals, streaks, and badges earned</div>
+                <div class="showcase-text">
+                    <div class="showcase-tag">Progress</div>
+                    <h3>Track every page</h3>
+                    <p>Build streaks, earn XP, unlock badges, and level up. Whether you read on your phone, tablet, or paperback — WellRead tracks it all.</p>
                 </div>
             </div>
         </div>
