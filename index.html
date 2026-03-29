@@ -655,9 +655,10 @@
 
         .screenshots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
             margin-top: 3rem;
+            justify-items: center;
         }
 
         .screenshot-container {
@@ -686,6 +687,21 @@
             color: var(--text-secondary);
             margin-top: 0.5rem;
         }
+
+        .screenshot-img {
+            width: 260px;
+            height: auto;
+            border-radius: 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 6px #1a1a1a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-img:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 6px #1a1a1a, 0 0 30px rgba(196, 154, 46, 0.15);
+        }
+
+        .screenshot-container:nth-child(5) { animation-delay: 0.4s; }
 
         /* How It Works */
         .how-it-works {
@@ -851,6 +867,12 @@
             font-size: 0.9rem;
         }
 
+        @media (max-width: 1100px) {
+            .screenshots-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         /* Scroll Animations */
         .scroll-fade {
             opacity: 0;
@@ -892,8 +914,12 @@
             }
 
             .screenshots-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
+            }
+
+            .screenshot-img {
+                width: 200px;
             }
 
             .nav-links {
@@ -1084,195 +1110,48 @@
     </section>
 
     <!-- Screenshots Section -->
-    <section class="screenshots" id="video">
+    <section class="screenshots" id="screenshots">
         <h2 class="section-title">See WellRead in action</h2>
-        <p class="section-subtitle">Built in code, crafted for readers</p>
+        <p class="section-subtitle">Real screenshots from the app</p>
 
         <div class="screenshots-grid">
-            <!-- Discover Screen -->
             <div class="screenshot-container">
                 <div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-status-bar">
-                                <div class="status-left"><span>9:41</span></div>
-                                <div class="status-right"><span>📶</span> <span>🔋</span></div>
-                            </div>
-                            <div class="phone-content">
-                                <div class="discover-card">
-                                    <div class="card-cover" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">📕 Book</div>
-                                    <div class="card-title">1984</div>
-                                    <div class="card-author">George Orwell</div>
-                                    <div class="card-meta">
-                                        <span>⭐ 4.6</span>
-                                        <span>• 328 pages</span>
-                                    </div>
-                                </div>
-                                <div class="discover-card">
-                                    <div class="card-cover" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">📘 Book</div>
-                                    <div class="card-title">To Kill a Mockingbird</div>
-                                    <div class="card-author">Harper Lee</div>
-                                    <div class="card-meta">
-                                        <span>⭐ 4.9</span>
-                                        <span>• 324 pages</span>
-                                    </div>
-                                </div>
-                                <div class="swipe-hint">← Swipe to discover →</div>
-                            </div>
-                            <div class="phone-tabbar">
-                                <div class="tab-item"><div class="tab-icon">🏠</div></div>
-                                <div class="tab-item"><div class="tab-icon">🔍</div></div>
-                                <div class="tab-item active"><div class="tab-icon">✨</div></div>
-                                <div class="tab-item"><div class="tab-icon">👥</div></div>
-                                <div class="tab-item"><div class="tab-icon">⚡</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screenshot-label">Smart Discovery</div>
-                    <div class="screenshot-description">Swipe through 61k+ books instantly</div>
+                    <img src="screenshots/home.png" alt="WellRead Home Screen" class="screenshot-img" loading="lazy">
+                    <div class="screenshot-label">Home</div>
+                    <div class="screenshot-description">Your reading dashboard with streaks, XP, and daily check-ins</div>
                 </div>
             </div>
 
-            <!-- Dashboard Screen -->
             <div class="screenshot-container">
                 <div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-status-bar">
-                                <div class="status-left"><span>9:41</span></div>
-                                <div class="status-right"><span>📶</span> <span>🔋</span></div>
-                            </div>
-                            <div class="phone-content">
-                                <div class="dashboard-section">
-                                    <div class="streak-badge">
-                                        <div class="streak-number">27</div>
-                                        <div class="streak-label">🔥 Day Streak</div>
-                                    </div>
-                                </div>
-                                <div class="dashboard-section">
-                                    <div style="margin-bottom: 0.4rem; font-size: 0.75rem; color: var(--text-secondary); font-weight: 600;">LEVEL 8 • 2,450 XP</div>
-                                    <div class="xp-bar">
-                                        <div class="xp-fill" style="width: 75%;"></div>
-                                    </div>
-                                    <div class="xp-text">2,450 / 3,000 to next level</div>
-                                </div>
-                                <div class="dashboard-section">
-                                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--cream); margin-bottom: 0.5rem;">📚 Reading Now</div>
-                                    <div class="progress-item">
-                                        <div class="progress-title">The Brothers Karamazov</div>
-                                        <div class="progress-pages">245 / 678 pages</div>
-                                    </div>
-                                </div>
-                                <div class="dashboard-section">
-                                    <div style="font-size: 0.75rem; font-weight: 600; color: var(--cream); margin-bottom: 0.4rem;">🎯 Daily Quest</div>
-                                    <div class="progress-item">
-                                        <div class="progress-title">Read 20 pages</div>
-                                        <div class="progress-pages">✓ Complete</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="phone-tabbar">
-                                <div class="tab-item active"><div class="tab-icon">🏠</div></div>
-                                <div class="tab-item"><div class="tab-icon">🔍</div></div>
-                                <div class="tab-item"><div class="tab-icon">✨</div></div>
-                                <div class="tab-item"><div class="tab-icon">👥</div></div>
-                                <div class="tab-item"><div class="tab-icon">⚡</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screenshot-label">Gamification Dashboard</div>
-                    <div class="screenshot-description">XP, streaks, levels, and daily quests</div>
+                    <img src="screenshots/discover.png" alt="WellRead Discover Screen" class="screenshot-img" loading="lazy">
+                    <div class="screenshot-label">Discover</div>
+                    <div class="screenshot-description">Swipe through 61k+ books with our Tinder-style feed</div>
                 </div>
             </div>
 
-            <!-- Quiz Screen -->
             <div class="screenshot-container">
                 <div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-status-bar">
-                                <div class="status-left"><span>9:41</span></div>
-                                <div class="status-right"><span>📶</span> <span>🔋</span></div>
-                            </div>
-                            <div class="phone-content">
-                                <div class="quiz-header">
-                                    <div class="quiz-progress">Question 3 of 5</div>
-                                    <div style="font-size: 0.75rem; color: rgba(255,255,255,0.8); margin-top: 0.3rem;">The Great Gatsby</div>
-                                </div>
-                                <div class="quiz-question">What is Gatsby's real name?</div>
-                                <div class="quiz-options">
-                                    <div class="quiz-option">James Gatz</div>
-                                    <div class="quiz-option" style="border-color: var(--sage); background: rgba(107, 158, 122, 0.15);">✓ Jay Gatsby</div>
-                                    <div class="quiz-option">George Wilson</div>
-                                    <div class="quiz-option">Tom Buchanan</div>
-                                </div>
-                                <div style="margin-top: 0.8rem; padding: 0.6rem; background: rgba(107, 158, 122, 0.1); border-radius: 8px; font-size: 0.7rem; color: var(--sage-light); border: 1px solid rgba(107, 158, 122, 0.3);">
-                                    ✓ Correct! +50 XP
-                                </div>
-                            </div>
-                            <div class="phone-tabbar">
-                                <div class="tab-item"><div class="tab-icon">🏠</div></div>
-                                <div class="tab-item"><div class="tab-icon">🔍</div></div>
-                                <div class="tab-item"><div class="tab-icon">✨</div></div>
-                                <div class="tab-item"><div class="tab-icon">👥</div></div>
-                                <div class="tab-item"><div class="tab-icon">⚡</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screenshot-label">AI-Generated Quizzes</div>
-                    <div class="screenshot-description">3 difficulty levels, instant feedback</div>
+                    <img src="screenshots/search.png" alt="WellRead Search Screen" class="screenshot-img" loading="lazy">
+                    <div class="screenshot-label">Search</div>
+                    <div class="screenshot-description">Find any book by title, author, or genre</div>
                 </div>
             </div>
 
-            <!-- Book Detail Screen -->
             <div class="screenshot-container">
                 <div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-status-bar">
-                                <div class="status-left"><span>9:41</span></div>
-                                <div class="status-right"><span>📶</span> <span>🔋</span></div>
-                            </div>
-                            <div class="phone-content">
-                                <div class="book-detail-cover" style="background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);">📗 Book Cover</div>
-                                <div class="book-rating">
-                                    <span class="star">⭐</span>
-                                    <span class="star">⭐</span>
-                                    <span class="star">⭐</span>
-                                    <span class="star">⭐</span>
-                                    <span class="star">⭐</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.7rem; margin-top: 2px;">4.8</span>
-                                </div>
-                                <div class="book-info-row">
-                                    <span class="book-info-label">Author</span>
-                                    <span>Jane Austen</span>
-                                </div>
-                                <div class="book-info-row">
-                                    <span class="book-info-label">Pages</span>
-                                    <span>432</span>
-                                </div>
-                                <div class="book-info-row">
-                                    <span class="book-info-label">Published</span>
-                                    <span>1813</span>
-                                </div>
-                                <div class="book-info-row">
-                                    <span class="book-info-label">Genre</span>
-                                    <span>Romance</span>
-                                </div>
-                                <button class="book-button">Start Reading</button>
-                                <button class="book-button" style="background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%); margin-top: 0.4rem;">Take Quiz</button>
-                            </div>
-                            <div class="phone-tabbar">
-                                <div class="tab-item"><div class="tab-icon">🏠</div></div>
-                                <div class="tab-item"><div class="tab-icon">🔍</div></div>
-                                <div class="tab-item"><div class="tab-icon">✨</div></div>
-                                <div class="tab-item"><div class="tab-icon">👥</div></div>
-                                <div class="tab-item"><div class="tab-icon">⚡</div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screenshot-label">Rich Book Details</div>
-                    <div class="screenshot-description">Ratings, metadata, quizzes, discussions</div>
+                    <img src="screenshots/club.png" alt="WellRead Book Clubs" class="screenshot-img" loading="lazy">
+                    <div class="screenshot-label">Book Clubs</div>
+                    <div class="screenshot-description">Join clubs, discuss books, and connect with other readers</div>
+                </div>
+            </div>
+
+            <div class="screenshot-container">
+                <div>
+                    <img src="screenshots/progress.png" alt="WellRead Reading Progress" class="screenshot-img" loading="lazy">
+                    <div class="screenshot-label">Progress</div>
+                    <div class="screenshot-description">Track reading goals, streaks, and badges earned</div>
                 </div>
             </div>
         </div>
@@ -1378,43 +1257,37 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#product">How It Works</a></li>
                     <li><a href="#screenshots">Screenshots</a></li>
-                    <li><a href="#">Pricing</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Company</h3>
+                <h3>Community</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Creators</h3>
-                <ul>
-                    <li><a href="#authors">Author Portal</a></li>
-                    <li><a href="#">Submission Guidelines</a></li>
-                    <li><a href="#">Publisher Partners</a></li>
-                    <li><a href="#">Become an Affiliate</a></li>
+                    <li><a href="authors.html">Author Portal</a></li>
+                    <li><a href="investors.html">Investors</a></li>
+                    <li><a href="mailto:hello@wellread.app">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="mailto:hello@wellread.app">hello@wellread.app</a></li>
+                    <li><a href="https://github.com/liquid1188/wellread" target="_blank" rel="noopener">GitHub</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 Likoudis Legacy Foundation. All rights reserved. | hello@wellread.app</p>
+            <p>&copy; 2026 Likoudis Legacy Foundation. All rights reserved.</p>
         </div>
     </footer>
 
